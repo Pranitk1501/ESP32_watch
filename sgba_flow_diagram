@@ -1,0 +1,98 @@
+// SGBA Algorithm Flow Diagram
+digraph {
+	graph [bgcolor=lightgray]
+	node [fillcolor=white style=filled]
+	edge [arrowhead=vee color=blue penwidth=2]
+	Start [label=Start shape=rectangle]
+	GoalLocation_0 [label="Robot 1 Goal Location" shape=rectangle]
+	GoalLocation_1 [label="Robot 2 Goal Location" shape=rectangle]
+	GoalLocation_2 [label="Robot 3 Goal Location" shape=rectangle]
+	GoalLocation_3 [label="Robot 4 Goal Location" shape=rectangle]
+	GoalLocation_4 [label="Robot 5 Goal Location" shape=rectangle]
+	Start -> GoalLocation_0
+	EncounterObstacle_0 [label="Encounter Obstacle?" shape=diamond]
+	GoalLocation_0 -> EncounterObstacle_0
+	FollowCanonical_0 [label="Follow Canonical Direction" shape=rectangle]
+	EncounterObstacle_0 -> FollowCanonical_0
+	ReturnInitial_0 [label="Returned to Initial Encounter Point?" shape=diamond]
+	FollowCanonical_0 -> ReturnInitial_0
+	ContinueMoving_0 [label="Continue Moving Towards Goal Location" shape=rectangle]
+	ReturnInitial_0 -> ContinueMoving_0 [label=No]
+	ContinueMoving_0 -> GoalLocation_0 [label=Yes]
+	OtherRobotNearby_0 [label="Other Robot Nearby?" shape=diamond]
+	ContinueMoving_0 -> OtherRobotNearby_0
+	AvoidCollision_0 [label="Avoid Collision" shape=rectangle]
+	OtherRobotNearby_0 -> AvoidCollision_0 [label=Yes]
+	AvoidCollision_0 -> FollowCanonical_0
+	OtherRobotNearby_0 -> ContinueMoving_0 [label=No]
+	Start -> GoalLocation_1
+	EncounterObstacle_1 [label="Encounter Obstacle?" shape=diamond]
+	GoalLocation_1 -> EncounterObstacle_1
+	FollowCanonical_1 [label="Follow Canonical Direction" shape=rectangle]
+	EncounterObstacle_1 -> FollowCanonical_1
+	ReturnInitial_1 [label="Returned to Initial Encounter Point?" shape=diamond]
+	FollowCanonical_1 -> ReturnInitial_1
+	ContinueMoving_1 [label="Continue Moving Towards Goal Location" shape=rectangle]
+	ReturnInitial_1 -> ContinueMoving_1 [label=No]
+	ContinueMoving_1 -> GoalLocation_1 [label=Yes]
+	OtherRobotNearby_1 [label="Other Robot Nearby?" shape=diamond]
+	ContinueMoving_1 -> OtherRobotNearby_1
+	AvoidCollision_1 [label="Avoid Collision" shape=rectangle]
+	OtherRobotNearby_1 -> AvoidCollision_1 [label=Yes]
+	AvoidCollision_1 -> FollowCanonical_1
+	OtherRobotNearby_1 -> ContinueMoving_1 [label=No]
+	Start -> GoalLocation_2
+	EncounterObstacle_2 [label="Encounter Obstacle?" shape=diamond]
+	GoalLocation_2 -> EncounterObstacle_2
+	FollowCanonical_2 [label="Follow Canonical Direction" shape=rectangle]
+	EncounterObstacle_2 -> FollowCanonical_2
+	ReturnInitial_2 [label="Returned to Initial Encounter Point?" shape=diamond]
+	FollowCanonical_2 -> ReturnInitial_2
+	ContinueMoving_2 [label="Continue Moving Towards Goal Location" shape=rectangle]
+	ReturnInitial_2 -> ContinueMoving_2 [label=No]
+	ContinueMoving_2 -> GoalLocation_2 [label=Yes]
+	OtherRobotNearby_2 [label="Other Robot Nearby?" shape=diamond]
+	ContinueMoving_2 -> OtherRobotNearby_2
+	AvoidCollision_2 [label="Avoid Collision" shape=rectangle]
+	OtherRobotNearby_2 -> AvoidCollision_2 [label=Yes]
+	AvoidCollision_2 -> FollowCanonical_2
+	OtherRobotNearby_2 -> ContinueMoving_2 [label=No]
+	Start -> GoalLocation_3
+	EncounterObstacle_3 [label="Encounter Obstacle?" shape=diamond]
+	GoalLocation_3 -> EncounterObstacle_3
+	FollowCanonical_3 [label="Follow Canonical Direction" shape=rectangle]
+	EncounterObstacle_3 -> FollowCanonical_3
+	ReturnInitial_3 [label="Returned to Initial Encounter Point?" shape=diamond]
+	FollowCanonical_3 -> ReturnInitial_3
+	ContinueMoving_3 [label="Continue Moving Towards Goal Location" shape=rectangle]
+	ReturnInitial_3 -> ContinueMoving_3 [label=No]
+	ContinueMoving_3 -> GoalLocation_3 [label=Yes]
+	OtherRobotNearby_3 [label="Other Robot Nearby?" shape=diamond]
+	ContinueMoving_3 -> OtherRobotNearby_3
+	AvoidCollision_3 [label="Avoid Collision" shape=rectangle]
+	OtherRobotNearby_3 -> AvoidCollision_3 [label=Yes]
+	AvoidCollision_3 -> FollowCanonical_3
+	OtherRobotNearby_3 -> ContinueMoving_3 [label=No]
+	Start -> GoalLocation_4
+	EncounterObstacle_4 [label="Encounter Obstacle?" shape=diamond]
+	GoalLocation_4 -> EncounterObstacle_4
+	FollowCanonical_4 [label="Follow Canonical Direction" shape=rectangle]
+	EncounterObstacle_4 -> FollowCanonical_4
+	ReturnInitial_4 [label="Returned to Initial Encounter Point?" shape=diamond]
+	FollowCanonical_4 -> ReturnInitial_4
+	ContinueMoving_4 [label="Continue Moving Towards Goal Location" shape=rectangle]
+	ReturnInitial_4 -> ContinueMoving_4 [label=No]
+	ContinueMoving_4 -> GoalLocation_4 [label=Yes]
+	OtherRobotNearby_4 [label="Other Robot Nearby?" shape=diamond]
+	ContinueMoving_4 -> OtherRobotNearby_4
+	AvoidCollision_4 [label="Avoid Collision" shape=rectangle]
+	OtherRobotNearby_4 -> AvoidCollision_4 [label=Yes]
+	AvoidCollision_4 -> FollowCanonical_4
+	OtherRobotNearby_4 -> ContinueMoving_4 [label=No]
+	Stop [label=Stop shape=oval]
+	ContinueMoving_0 -> Stop
+	ContinueMoving_1 -> Stop
+	ContinueMoving_2 -> Stop
+	ContinueMoving_3 -> Stop
+	ContinueMoving_4 -> Stop
+}

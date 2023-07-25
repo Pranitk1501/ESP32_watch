@@ -1,8 +1,8 @@
 #include <WiFi.h>
 #include "time.h"
 
-const char* ssid       = "Pranit CE";
-const char* password   = "1234567890";
+const char* ssid       = "robocon-ER";
+const char* password   = "12345678";
 
 const char* ntpServer = "asia.pool.ntp.org";
 const long  gmtOffset_sec = 18900;
@@ -38,7 +38,7 @@ void setup() {
   Serial.printf("Connecting to %s ", ssid);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
-      delay(500);
+      // delay(500);
       Serial.print(".");
   }
   Serial.println(" CONNECTED");
@@ -46,7 +46,8 @@ void setup() {
   //init and get the time
   configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
 
-  xTaskCreatePinnedToCore(printTime, "Time Display", 4096, NULL, 0, &Timefetch, 1);
+  xTaskCreatePinnedToCore(printTime, "Time Display", 4096, NULL, 1, &Timefetch, 1);
+  // vTaskDelete(Timefetch);
 
 }
 
