@@ -5,43 +5,21 @@
 #include <Wire.h>
 #include <TFT_eSPI.h>
 #include <SPI.h>
-#include "MAX30105.h"
-#include "heartRate.h"
-#include <NTPClient.h>
-#include <WiFiUdp.h>
-#include <WiFi.h>
 #include <TFT_eWidget.h>
 #include "string.h"
 
-MAX30105 particleSensor;
+
 
 TFT_eSPI tft = TFT_eSPI();  
 Adafruit_MPU6050 mpu;
 
-const byte RATE_SIZE = 4; 
-byte rates[RATE_SIZE]; 
-byte rateSpot = 0;
-long lastBeat = 0; 
-
-float beatsPerMinute;
-int beatAvg;
 
 int steps = 4000;
 int angle = 0;
 int calories = 0;
 
-const char* ssid     = "pranit";
-const char* password = "1234567890";
 
-String weekDays[7]={"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-String months[12]={"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
-#define NTP_OFFSET  19800 // In seconds
-#define NTP_INTERVAL 60 * 1000    // In miliseconds
-#define NTP_ADDRESS  "time.google.com"
-
-WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, NTP_ADDRESS, NTP_OFFSET, NTP_INTERVAL);
 
 void setup() {
   Serial.begin(115200);

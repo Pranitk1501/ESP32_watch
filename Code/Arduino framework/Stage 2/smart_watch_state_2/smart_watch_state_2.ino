@@ -1,9 +1,7 @@
 //STATE 2 Heart Rate and OXY readings
 
-#include <Adafruit_MPU6050.h>
-#include <Adafruit_Sensor.h>
-#include <Wire.h>
 #include <TFT_eSPI.h>
+#include <Wire.h>
 #include <SPI.h>
 #include "MAX30105.h"
 #include "heartRate.h"
@@ -15,7 +13,7 @@
 MAX30105 particleSensor;
 
 TFT_eSPI tft = TFT_eSPI();  
-Adafruit_MPU6050 mpu;
+// Adafruit_MPU6050 mpu;
 
 const byte RATE_SIZE = 4; 
 byte rates[RATE_SIZE]; 
@@ -25,15 +23,15 @@ long lastBeat = 0;
 float beatsPerMinute;
 int beatAvg;
 
-const char* ssid     = "pranit";
-const char* password = "1234567890";
+// const char* ssid     = "pranit";
+// const char* password = "1234567890";
 
-#define NTP_OFFSET  19800 // In seconds
-#define NTP_INTERVAL 60 * 1000    // In miliseconds
-#define NTP_ADDRESS  "1.asia.pool.ntp.org"
+// #define NTP_OFFSET  19800 // In seconds
+// #define NTP_INTERVAL 60 * 1000    // In miliseconds
+// #define NTP_ADDRESS  "1.asia.pool.ntp.org"
 
-WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, NTP_ADDRESS, NTP_OFFSET, NTP_INTERVAL);
+// WiFiUDP ntpUDP;
+// NTPClient timeClient(ntpUDP, NTP_ADDRESS, NTP_OFFSET, NTP_INTERVAL);
 
 GraphWidget gr = GraphWidget(&tft);
 TraceWidget tr = TraceWidget(&gr);
